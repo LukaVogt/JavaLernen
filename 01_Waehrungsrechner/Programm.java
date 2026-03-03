@@ -79,17 +79,18 @@ public class Programm {
 
         DecimalFormat df = new DecimalFormat("0.00");
 
-        double result = amountEuro * exchangeRate;
+         if(exchangeRate > 0){
 
-        System.out.println(amountEuro + " euro are " + df.format(result) + " " + currencyName);
+             double result = amountEuro * exchangeRate;
 
+        System.out.println(df.format(amountEuro) + " euro are " + df.format(result) + " " + currencyName);
+
+         }else{
+
+            System.out.println("ERROR");
+         }
 
        
-
-
-
-       
-
         
     }    
 }
