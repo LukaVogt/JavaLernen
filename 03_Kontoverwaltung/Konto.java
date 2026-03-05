@@ -1,11 +1,12 @@
 import java.util.ArrayList;
-import java.util.Scanner; // Scanner importieren
+import java.util.Locale;
+import java.util.Scanner;// Scanner importieren
 
 
 public class Konto{
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);  // create scanner
+         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);  // create scanner
 
         //Name
 

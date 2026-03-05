@@ -4,10 +4,10 @@ public class DorfTuersteher {
         // ID
         
         String name = "Luka";
-        int age = 20;
+        int age = 15;
         double bloodAlcoholLevel = 1;
         boolean hasParentalPermission = false;
-        boolean isLocalYouthMember = false;
+        boolean isLocalYouthMember = true;
 
         // Encounter
 
