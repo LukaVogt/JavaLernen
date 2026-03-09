@@ -6,7 +6,7 @@ public class Programm {
         // Daten
 
         double amountEuro = 10000.00;
-        String targetCurrency = "JPY";
+        String targetCurrency = "";
         double exchangeRate = 0.0;
         String currencyName = "";
 

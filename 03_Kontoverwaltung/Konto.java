@@ -16,14 +16,27 @@ public class Konto{
         System.out.println("Username is: " + userName);      // Output user input
 
         //Money
+        
+        double myBudget = 0;
 
-        System.out.println("Whats your starting budget?");
+        while(myBudget <= 0){
+            System.out.println("Whats your starting budget?");
 
-        double myBudget = scanner.nextDouble();
+             myBudget = scanner.nextDouble();
+
+        }
+
+        
+        if(myBudget > 0){
+            System.out.println("Startingbudget is: " + myBudget + " $");
+
+        }else{
+            System.out.println("You aint goin in the negatives pal");
+        }
 
         ArrayList <Double> historie = new ArrayList<>();  // ArrayList
 
-        System.out.println("Startingbudget is: " + myBudget + " $");
+        
 
         //Menu
         int menu = 0;
@@ -60,7 +73,7 @@ public class Konto{
 
 
             }else{
-                System.out.println("ERROR; INVALID NUMBER2");
+                System.out.println("ERROR; INVALID NUMBER");
             }
 
 
