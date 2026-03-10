@@ -9,6 +9,9 @@ public class Game {
         static int shield = 50;
         static String weapon = "MA5B Assault Rifle";
         static int weaponDamage = 20;
+        static int grenade = 5;
+        static int grenadeDamage = 50;
+        static int meleeDamage = 30;
 
         //Enemy(Grunt)
         static int gruntHealth = 30;
@@ -22,7 +25,9 @@ public class Game {
         showIntro();
 
         showProfile();
-
+        System.out.println();
+        System.out.println("You land on the ring like planet, walk for a while and see a grunt in the distance");
+        System.out.println();
         fight();
     }
 
@@ -52,22 +57,65 @@ public class Game {
     }
     public static void fight(){
         while(health > 0 && gruntHealth > 0){
+            
             System.out.println("What do you do?");
-        System.out.println("1. Shoot");
-        System.out.println("2. Grenade (5x)");
-        System.out.println("3. Melee");
-        System.out.println("4. Take cover");
-        
+            System.out.println("1. Shoot");
+            System.out.println("2. Grenade (5x)");
+            System.out.println("3. Melee");
+            System.out.println("4. Take cover");
+            
 
             int decision = scanner.nextInt();
             if(decision == 1){
         
                 gruntHealth = gruntHealth - weaponDamage;
-                System.out.println("You land a few shots and it now has" + gruntHealth + " hp left");
+                System.out.println("You land a few shots and it now has " + gruntHealth + " hp left");
             }
-        }
-        
+            if(gruntHealth <= 0){
+                    System.out.println("Grunt defeated");
+                    break;
+            }
+                    
+
+            if(decision == 2){
+                if(grenade > 0){
+                    grenade -= 1;
+                    gruntHealth -= grenadeDamage;
+                    if(gruntHealth <= 0){
+                        System.out.println("You throw the grenade and made " + grenadeDamage + " damage");
+                        System.out.println("Grunt defeated");
+                        break;
+                    
+                    }
+                    
+                }else{
+                    System.out.println("Dammit! Im out of grenades!");
+                }
+            }
+
+            if(decision == 3){
+                gruntHealth -= meleeDamage;
+
+                if(gruntHealth <= 0){
+                    System.out.println("You decide to go up close for melee and made " + meleeDamage + " damage");
+                    System.out.println("Grunt defeated");
+                    break;
+                }   
+
+            }
+
+            if(decision == 4){
+                if(shield < 50){
+                    System.out.println("Shield regenerated to max again");
+                    shield = 50;
+
+                }else{
+                    System.out.println("Shield already full");
+                }
+
+            }
+                 
         }
     
-    
+    }
 }
