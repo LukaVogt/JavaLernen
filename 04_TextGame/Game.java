@@ -114,6 +114,21 @@ public class Game {
                 }
 
             }
+
+            if(gruntHealth > 0 && decision != 4){
+                 System.out.println();
+                 System.out.println("The grunt shoots back and makes " + gruntDamage + " damage");
+                 if(gruntDamage > shield){
+                    int rest = gruntDamage - shield;
+                    health -= rest;
+                    shield = 0;
+
+                 }else{
+                    shield -= gruntDamage;
+                 }
+                 
+            }
+           
                  
         }
     
