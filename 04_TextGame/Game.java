@@ -121,10 +121,17 @@ public class Game {
                  if(gruntDamage > shield){
                     int rest = gruntDamage - shield;
                     health -= rest;
+                    if(health <= 0){
+                        System.out.println("You got killed by a grunt");
+                        System.out.println("GAME OVER");
+                        break;
+                    }
+                    System.out.println("I got " + health + " hp left");
                     shield = 0;
 
                  }else{
                     shield -= gruntDamage;
+                    System.out.println("I got " + shield + " shield left");
                  }
                  
             }
