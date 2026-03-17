@@ -12,6 +12,8 @@ public class Game {
         static int grenade = 5;
         static int grenadeDamage = 50;
         static int meleeDamage = 30;
+        static int ammo = 60;
+        static int ammoReserve = 230;
 
         //Enemy(Grunt)
         static int gruntHealth = 30;
@@ -38,8 +40,10 @@ public class Game {
         System.out.println("Shield: " + shield);
         System.out.println("Weapon: " + weapon);
         System.out.println("Damage: " + weaponDamage);
+        System.out.println("Ammo:" + ammo + " loaded");
+        System.out.println("Ammo in reserve: " + ammoReserve);
             
-        }
+    }
 
     public static void showIntro(){
 
@@ -63,13 +67,16 @@ public class Game {
             System.out.println("2. Grenade (5x)");
             System.out.println("3. Melee");
             System.out.println("4. Take cover");
+            System.out.println("5. Reload");
             
 
             int decision = scanner.nextInt();
-            if(decision == 1){
+            if(decision == 1 && ammo > 0){
+                ammo -= 20;
         
                 gruntHealth = gruntHealth - weaponDamage;
                 System.out.println("You land a few shots and it now has " + gruntHealth + " hp left");
+                System.out.println("You got " + ammo + " bullets left");
             }
             if(gruntHealth <= 0){
                     System.out.println("Grunt defeated");
@@ -115,6 +122,22 @@ public class Game {
 
             }
 
+            if(decision == 5){
+                    if(ammo == 0){
+                        if(ammoReserve == 0){
+                            System.out.println("No ammo left in reserves");
+                        
+                        }else if(ammoReserve > 0){
+                            ammo = 60;
+                            ammoReserve -= 60;
+                        }
+                
+                    }else if(ammo > 0){
+                        System.out.println("Your gun ist not empty");
+                    }
+            }
+                
+
             if(gruntHealth > 0 && decision != 4){
                  System.out.println();
                  System.out.println("The grunt shoots back and makes " + gruntDamage + " damage");
@@ -140,4 +163,19 @@ public class Game {
         }
     
     }
+    public static void showEnding(){
+        System.out.println();
+        System.out.println("The Covenant installation looms ahead.");
+        System.out.println("Chief plants the charge. Steps back.");
+        System.out.println("'This ends now.'");
+        System.out.println();
+        System.out.println("The explosion tears through the ring.");
+        System.out.println("Chief runs. The pelican pulls him out just in time.");
+        System.out.println();
+        System.out.println("Mission complete. Spartan out.");
+        System.out.println();
+        System.out.println("*** THE END ***");
+
+    }
+    
 }
